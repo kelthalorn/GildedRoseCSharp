@@ -9,10 +9,10 @@ public class GildedRoseShould
     [Test]
     public void quality_and_sellin_never_change()
     {
-        List<Item> items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", Quality = 0, SellIn = 0 } };
+        List<Item> items = new List<Item> { new Item { Name = ItemName.Sulfuras, Quality = 0, SellIn = 0 } };
         var gildedRose = new GildedRose(items);
         gildedRose.UpdateQuality();
-        Check.That(items[0].Name).IsEqualTo("Sulfuras, Hand of Ragnaros");
+        Check.That(items[0].Name).IsEqualTo(ItemName.Sulfuras);
         Check.That(items[0].Quality).IsEqualTo(0);
         Check.That(items[0].SellIn).IsEqualTo(0);
     }
@@ -20,7 +20,7 @@ public class GildedRoseShould
     [Test]
     public void aged_brie_increases_in_quality_with_depreciated_date()
     {
-        var item = new Item { Name = "Aged Brie", Quality = 0, SellIn = 0 };
+        var item = new Item { Name = ItemName.AgedBrie, Quality = 0, SellIn = 0 };
         var items = new List<Item> { item };
         var gildedRose = new GildedRose(items);
         gildedRose.UpdateQuality();
@@ -32,7 +32,7 @@ public class GildedRoseShould
     [Test]
     public void aged_brie_increases_in_quality_from_sellIn_1()
     {
-        var item = new Item { Name = "Aged Brie", Quality = 0, SellIn = 1 };
+        var item = new Item { Name = ItemName.AgedBrie, Quality = 0, SellIn = 1 };
         var items = new List<Item> { item };
         var gildedRose = new GildedRose(items);
         gildedRose.UpdateQuality();
@@ -44,7 +44,7 @@ public class GildedRoseShould
     [Test]
     public void backstage_ticket_increase_quality_of_2_when_10_days_before_concert_date()
     {
-        var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 6, SellIn = 10 };
+        var item = new Item { Name = ItemName.Backstage, Quality = 6, SellIn = 10 };
         var items = new List<Item> { item };
         var gildedRose = new GildedRose(items);
         gildedRose.UpdateQuality();
@@ -56,7 +56,7 @@ public class GildedRoseShould
     [Test]
     public void backstage_ticket_increase_quality_of_3_when_6_days_before_concert_date()
     {
-        var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 6, SellIn = 5 };
+        var item = new Item { Name = ItemName.Backstage, Quality = 6, SellIn = 5 };
         var items = new List<Item> { item };
         var gildedRose = new GildedRose(items);
         gildedRose.UpdateQuality();
@@ -68,7 +68,7 @@ public class GildedRoseShould
     [Test]
     public void backstage_ticket_quality_passed_to_0_when_concert_date_is_passed()
     {
-        var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", Quality = 6, SellIn = -1 };
+        var item = new Item { Name = ItemName.Backstage, Quality = 6, SellIn = -1 };
         var items = new List<Item> { item };
         var gildedRose = new GildedRose(items);
         gildedRose.UpdateQuality();
@@ -80,7 +80,7 @@ public class GildedRoseShould
     [Test]
     public void quality_decrease_when_other_items_sellIn_passed_negative()
     {
-        var item = new Item { Name = "default", Quality = 6, SellIn = -1 };
+        var item = new Item { Name = ItemName.Default, Quality = 6, SellIn = -1 };
         var items = new List<Item> { item };
         var gildedRose = new GildedRose(items);
         gildedRose.UpdateQuality();
