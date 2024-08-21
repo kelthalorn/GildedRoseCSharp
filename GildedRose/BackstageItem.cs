@@ -27,9 +27,9 @@ public class BackstageItem : IUpdateItem
 
         item.SellIn--;
 
-        if (item.SellIn < 0)
+        if (item.IsExpired())
         {
-            item.Quality = 0;
+            item.ResetQuality();
         }
     }
 }

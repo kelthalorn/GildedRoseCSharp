@@ -21,4 +21,9 @@ public static class ItemExtension
     {
         return item.SellIn < limit;
     }
+    
+    public static void ResetQuality(this Item item)
+    {
+        item.Quality = 0;
+    }
 }

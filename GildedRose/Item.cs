@@ -23,5 +23,6 @@ public enum ItemName
     Sulfuras,
     AgedBrie,
     Backstage,
-    Default
+    Default,
+    Conjured
 }

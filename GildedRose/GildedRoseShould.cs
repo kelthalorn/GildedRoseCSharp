@@ -88,4 +88,16 @@ public class GildedRoseShould
         Check.That(items[0].Quality).IsEqualTo(4);
         Check.That(items[0].SellIn).IsEqualTo(-2);
     }
+
+    [Test]
+    public void conjured_decreased_quality_twice_as_fast_as_other_items()
+    {
+        var item = new Item { Name = ItemName.Conjured, Quality = 10, SellIn = 5 };
+        var items = new List<Item> { item };
+        var gildedRose = new GildedRose(items);
+        gildedRose.UpdateQuality();
+
+        Check.That(items[0].Quality).IsEqualTo(6);
+        Check.That(items[0].SellIn).IsEqualTo(4);
+    }
 }
