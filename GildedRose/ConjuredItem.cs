@@ -1,11 +1,12 @@
 namespace GildedRoseKata;
 
-public class DefaultItem : IUpdateItem
+internal class ConjuredItem : IUpdateItem
 {
     public void UpdateQuality(Item item)
     {
         if (item.IsOverMinQuality())
         {
+            item.Quality--;
             item.Quality--;
         }
 
@@ -13,6 +14,7 @@ public class DefaultItem : IUpdateItem
 
         if (item.IsOverMinQuality())
         {
+            item.Quality--;
             item.Quality--;
         }
     }

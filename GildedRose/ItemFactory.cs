@@ -10,6 +10,7 @@ public class ItemFactory
         [ItemName.AgedBrie] = new AgedBrieItem(),
         [ItemName.Sulfuras] = new SulfurasItem(),
         [ItemName.Default] = new DefaultItem(),
+        [ItemName.Conjured] = new ConjuredItem(),
     };
     
     public IUpdateItem GetItem(ItemName itemName)
